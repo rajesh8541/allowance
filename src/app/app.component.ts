@@ -17,6 +17,7 @@ export class AppComponent {
   toggle = true;
   data: Array<any> = [];
   data1: Array<any> = [];
+  arrayControl: any;
 
   ngOnInit() {
     this.form1 = new FormGroup({
@@ -74,17 +75,12 @@ export class AppComponent {
       this.data.push(ele)
     })
   }
-  changeImage() {
-      this.toggle = !this.toggle;
-      if (this.toggle) { this.imageSrc = './assets/checked.png' }
-      else { this.imageSrc = './assets/edit.png' }
-  }
-  removeText(index: number) {
+  removeText(index: any) {
       this.allowance.removeAt(index);
   }
   disableMethod(index: number) {
-      if (this.allowance.disabled) { this.allowance.enable(); }
-      else { this.allowance.disable(); }
+     this.arrayControl = this.form.get('allowance') as FormArray ;
+     this.arrayControl.at(index).disable();
   }
 
   drop(event: CdkDragDrop<Event>) {

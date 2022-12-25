@@ -5,8 +5,7 @@
       <div formArrayName="allowance" cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
         <div *ngFor="let a of allowance?.controls;let i = index" [formGroupName]="i" class="example-box" cdkDrag>
           <input type="text" formControlName="name" placeholder="Allowance" id="allowance name" />
-          <img src="{{imageSrc}}" style=" width:17px; height:17px" alt="" (click)="disableMethod(i); "
-            (click)="changeImage()">
+          <img src="{{allowance.controls[i].status === 'VALID' ? './assets/checked.png' : './assets/edit.png'}}" style=" width:17px; height:17px" alt="" (click)="disableMethod(i)">
           <img src="./assets/close.png" style="width: 17px; height: 17px;" (click)="removeText(i)"
             onclick="document.getElementById('myInput').value = ''" alt="">
         </div>
