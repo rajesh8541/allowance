@@ -1,0 +1,21 @@
+<form [formGroup]="form">
+    <div class="main">
+            <div formArrayName="allowance" cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+              <div *ngFor="let a of allowance?.controls;let i = index" [formGroupName]="i" class="example-box" cdkDrag>
+                <input type="text" formControlName="name" placeholder="Eneter" id="allowance name" />
+                <img src="{{allowance.controls[i].status === 'VALID' ? './assets/checked.png' : './assets/edit.png'}}" style=" width:17px; height:17px" alt="" (click)="disableMethod(i)">
+                <img src="./assets/close.png" style="width: 17px; height: 17px;" (click)="removeText(i)"
+                   alt="">
+              </div>
+            </div>
+            <button (click)="addInput('allowance')" class="addInput">Add </button>
+    </div>   
+    
+  </form>
+
+
+  
+
+
+
+ 

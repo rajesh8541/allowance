@@ -1,34 +1,20 @@
-<form [formGroup]="form">
+
   <div class="main">
     <div class="allowance">
       <h1>Allowance:-</h1>
-      <div formArrayName="allowance" cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-        <div *ngFor="let a of allowance?.controls;let i = index" [formGroupName]="i" class="example-box" cdkDrag>
-          <input type="text" formControlName="name" placeholder="Allowance" id="allowance name" />
-          <img src="{{allowance.controls[i].status === 'VALID' ? './assets/checked.png' : './assets/edit.png'}}" style=" width:17px; height:17px" alt="" (click)="disableMethod(i)">
-          <img src="./assets/close.png" style="width: 17px; height: 17px;" (click)="removeText(i)"
-            onclick="document.getElementById('myInput').value = ''" alt="">
-        </div>
-      </div>
-      <button (click)="addInput()" class="addInput">Add </button>
+        <app-reusable (event)="childInput1=$event"></app-reusable>
     </div>
     <div class="deduction">
-      <h1>Deduction:-</h1>
-      <div formArrayName="deduction" cdkDropList class="example-list" (cdkDropListDropped)="drop1($event)">
-        <div *ngFor="let d of deduction?.controls; let j = index" [formGroupName]="j" class="example-box" cdkDrag>
-          <input type="text" formControlName="name" placeholder="Deduction " id="deduction name" />
-          <img src="{{imageSrc1}}" style=" width:17px; height:17px" alt="" (click)="disableDeb(); "
-            (click)="changeImageDeb()">
-          <img src="./assets/close.png" style="width: 17px; height: 17px;" (click)="removeDeb(j)"
-            onclick="document.getElementById('mydeb').value = ''" alt="">
-        </div>
-      </div>
-      <button (click)="addDeduction()" class="addInput">Add </button>
+        <h1>Deduction:-</h1>
+          <app-reusable (event)="childInput1=$event"></app-reusable>
     </div>
   </div>
-</form>
+  
+  <div class="savebtn">
+    <button class="Save" (click)="save($event)">Save</button>
+  </div>  
+  
+  
 
-
-Allowance - {{form.value | json}}
-
-<router-outlet></router-outlet>
+  
+ 

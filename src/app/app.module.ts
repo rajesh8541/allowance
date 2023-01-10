@@ -4,12 +4,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { ReusableComponent } from './reusable/reusable.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ReusableComponent
   ],
   imports: [
     BrowserModule,
